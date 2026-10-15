@@ -217,18 +217,26 @@ function updateIndicator()
 }
 
 function onSelectLanguage(languageCode: string)
-{
-    Cookies.set("firebase-language-override", languageCode, {path: "/", expires: 7});
+{    Cookies.set("firebase-language-override", languageCode, {path: "/", expires: 7});
 
-    if (urlHasLanguageCode(new URL(window.location.href)))
-    {
-        sessionStorage.setItem("scroll", String(window.scrollY));
-        window.location.assign(setLangInUrl(new URL(window.location.href), languageCode));
-    }
-    else
-    {
-        window.location.reload();
-    }
+    const current = new URL(window.location.href);
+    let pathname = current.pathname;
+
+    if (pathname === "/en" || pathname === "/en/")
+        pathname = "/";
+    else if (pathname.startsWith("/en/"))
+        pathname = pathname.slice(3);
+    else if (pathname === "/ja" || pathname === "/ja/")
+        pathname = "/";
+    else if (pathname.startsWith("/ja/"))
+        pathname = pathname.slice(3);
+
+    const targetPath = languageCode === "ja"
+        ? "/ja" + (pathname === "/" ? "/" : pathname)
+        : pathname;
+
+    sessionStorage.setItem("scroll", String(window.scrollY));
+    window.location.assign(targetPath + current.search + current.hash);
 }
 
 function onNavigateTo(id: string)
