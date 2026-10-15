@@ -1,0 +1,661 @@
+---
+import {getLangFromUrl} from "../../i18n/utils";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import VerticalLayout from "../../components/layout/VerticalLayout.vue";
+import NavigationBar from "../../components/sections/NavigationBar.vue";
+import HeroSection from "../../components/sections/HeroSection.vue";
+import InfoSection from "../../components/sections/Info.vue";
+import ForumSection from "@components/sections/Forum.vue";
+import ExpoSection from "@components/sections/Expo.vue";
+import SpeakerSection from "../../components/sections/Speakers.vue";
+import SpeakersCard from "@components/sections/SpeakersCard.vue";
+import TimetableSection from "../../components/sections/Timetable.vue";
+import Sponsors from "../../components/sections/Sponsors.vue";
+import Register from "../../components/sections/Register.vue";
+import Footer from "../../components/sections/Footer.vue";
+import MessageSection from "../../components/sections/Message.vue";
+import TimetableEntry from "@components/sections/TimetableEntry.vue";
+import TimetableEntrySection from "@components/sections/TimetableEntrySection.vue";
+import PrimaryButton from "../../components/base/PrimaryButton.vue";
+
+import DavidMessageFromPresidentImg from "../../assets/osaka-africa-business-forum/data_545.jpg";
+import SackoMessageImg from "../../assets/osaka-africa-business-forum/data_330.jpg";
+
+import ChickeImg from "@assets/osaka-africa-business-forum/chike-c-nwoffiah.jpg";
+
+const lang = getLangFromUrl(Astro.url);
+---
+<BaseLayout>
+    <VerticalLayout class="md:gap-0">
+        <HeroSection lang={lang} client:load></HeroSection>
+        <InfoSection lang={lang} id="info">
+            <span slot="title">
+                From Osaka EXPO to Green EXPO
+                <br>
+                Growing together with Africa
+                <br>
+                through green innovation
+            </span>
+            <span slot="description">
+                Following the 2025 Osaka-Kansai Expo and TICAD9, this one-day forum turns partnerships, MoUs and business relationships into concrete trade, investment and implementation. With GREEN×EXPO 2027 on the horizon, the programme focuses on renewable energy, sustainable agriculture, environmental technology, climate action and youth-led green entrepreneurship.
+            </span>
+            <span slot="card-1-title">
+                Post-Expo commercialization
+            </span>
+            <span slot="card-1-content">
+                Move 2025 business matches and MoUs from pilot projects toward full business and investment.
+            </span>
+            <span slot="card-2-title">
+                Green industry and agri-business
+            </span>
+            <span slot="card-2-content">
+                Create Japan–Africa collaboration models in environmental technology, renewable energy, sustainable agriculture and food innovation.
+            </span>
+            <span slot="card-3-title">
+                Kansai technology and entrepreneurship
+            </span>
+            <span slot="card-3-content">
+                Match Higashiosaka and Kansai SMEs with African market needs, while connecting youth- and diaspora-led ventures with investors and implementation partners.
+            </span>
+        </InfoSection>
+        <ForumSection lang={lang} id="forum">
+            <span slot="title">
+                Africa Business Forum-Osaka 2026
+            </span>
+            <span slot="description">
+                A practical one-day programme for government, business, investment, research and diaspora leaders from Japan and Africa.
+            </span>
+
+            <span slot="venue-name">
+                Higashiosaka City Cultural Creation Hall
+            </span>
+            <span slot="venue-address">
+                2-3-4 Mikuriya Minami, Higashi-Osaka City, Osaka 577-0034 Japan · 22 October 2026 · 10:00–20:30
+            </span>
+
+            <span slot="card-1-title">
+                Green innovation
+            </span>
+            <span slot="card-1-content">
+                “From OSAKA EXPO to Green Future” — moving from visibility to implementation and sustainable growth.
+            </span>
+            <span slot="card-2-title">
+                Africa market access
+            </span>
+            <span slot="card-2-content">
+                Practical guidance on partners, distributors, local production, technology transfer, joint ventures, regulation, financing and regional markets including EAC, ECOWAS and AfCFTA.
+            </span>
+            <span slot="card-3-title">
+                Start-up pitches
+            </span>
+            <span slot="card-3-content">
+                Japanese and Japan-based African entrepreneurs present green and social innovation models, followed by investor comments.
+            </span>
+            <span slot="card-4-title">
+                Booth networking
+            </span>
+            <span slot="card-4-content">
+                Embassy, partner and sponsor booths support targeted B2B, B2G, G2G and university matching.
+            </span>
+
+            <span slot="register-title">
+                Register as partner or sponsor
+            </span>
+            <span slot="register-content">
+                For people interested in becoming partner or sponsor, etc.
+            </span>
+            <span slot="register-button">
+               <a href="https://forms.gle/LrEHbNAmjjBwm9Yx6"
+                  class="text-sm text-white-800 font-bold mt-5 ">Contact Us</a>
+            </span>
+
+        </ForumSection>
+        <ExpoSection lang={lang} id="expo">
+            <span slot="title">
+                Discover Africa Expo, Matsuri
+            </span>
+            <span slot="subtitle">
+                Experience the real Africa
+            </span>
+            <span slot="description">
+                The second day of the event serves as a
+                platform for citizens, companies, and African embassies in Japan to showcase their products,
+                services, and cultural heritage.
+            </span>
+
+            <span slot="venue-name">
+                Higashiosaka Hanazono Central Park
+            </span>
+            <span slot="venue-address">
+                1-1-43 Matsubara-Minami, Higashiosaka-shi, Osaka 578-0923 Japan
+            </span>
+
+            <span slot="business-card-1-title">
+                Booths
+            </span>
+            <span slot="business-card-1-content">
+                Booths by African embassies in Japan with B-to-B meeting. Booths set up by company,
+                Governmental partners including overseas expansion support organizations
+            </span>
+            <span slot="business-card-2-title">
+                B2B Meeting Area
+            </span>
+            <span slot="business-card-2-content">
+                This is a designated area set for business-to-business (B2B) interactions. The space is designed for attendees to arrange and conduct business meetings and conclude business deals in the business area.
+            </span>
+
+            <span slot="expo-card-1-title">
+                Opening Ceremony
+            </span>
+            <span slot="expo-card-1-content">
+                Opening Ceremony with welcoming speeches from distinguished guests including government and diplomatic officials.
+            </span>
+            <span slot="expo-card-2-title">
+                African Marketplace
+            </span>
+            <span slot="expo-card-2-content">
+                African marketplace with exhibitors from various African countries, showcasing a diverse range of products, such as textiles, handcraft, art, jewelry, food, and beverages.
+            </span>
+            <span slot="expo-card-3-title">
+                Cultural Performances
+            </span>
+            <span slot="expo-card-3-content">
+                Cultural performances with Folk music and live artists with a fashion show.
+            </span>
+            <span slot="expo-card-4-title">
+                Presentations
+            </span>
+            <span slot="expo-card-4-content">
+                Chike Nwoffiah, founder of the Silicon Valley Africa Film Festival (SVAFF).
+               Topic: The Potential of creative business in Africa
+            </span>
+
+            <span slot="register-title">
+                Register as partner
+            </span>
+            <span slot="register-content">
+                For people interested in having a booth, performing, or selling food, etc.
+            </span>
+            <span slot="register-button">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeMVtqMWbR30hYYh92voAHezWdY3_bQmEU_MR4Kbq-uLfT0Lg/viewform"
+                   class="text-sm text-white-800 font-bold mt-5 ">Contact Us</a>
+            </span>
+        </ExpoSection>
+        <MessageSection lang={lang} id="message" image={DavidMessageFromPresidentImg}>
+            <span slot="title">Letter from the President</span>
+            <strong>Welcome to Africa Business Forum-Osaka 2026</strong>
+            <p>
+                Africa Diaspora Network Japan (ADNJ) welcomes you to Africa Business Forum-Osaka 2026, held on Thursday, October 22 at Higashiosaka City Cultural Creation Hall.
+            </p>
+            <p>
+                Under the theme “From Osaka EXPO to Green EXPO: Growing together with Africa”, the Forum moves beyond dialogue to practical green innovation, market access and co-creation.
+
+            </p>
+            <p>
+               Since the launch of the Discover Africa initiative in 2020, ADNJ has worked to deepen mutual understanding and unlock collaborative potential between African and Japanese enterprises. Following two years of successful forums centered on discovering and connecting with Africa,
+               we are now carving new paths together with concrete business opportunities.
+            </p>
+             <p>
+              By participating as a sponsor, partner, or volunteer, you will help strengthen a vibrant ecosystem that empowers innovation, entrepreneurship, and trust across borders.
+            </p>
+            <p>
+              Join us in building this future, with Africa.
+            </p>
+             <p>
+              Register now and see you soon!
+            </p>
+            <p slot="signature">David Kpondehou</p>
+            <div slot="image-caption">
+                <p class="font-bold mb-2">David Kpondehou</p>
+                <p>President, Africa Diaspora Network Japan (ADNJ)</p>
+            </div>
+        </MessageSection>
+        <MessageSection lang={lang} image={SackoMessageImg} order="inverted">
+            <span slot="title">Message from Osaka Africa Business Forum Executive Committee Chairperson</span>
+             <p>Dear Everyone,</p>
+            <p>
+                "Walking Together with Africa" is the theme for this year's Osaka Africa Business Forum. We warmly
+                welcome the participation of business professionals, small and medium-sized enterprise owners, and the general public.
+            </p>
+            <p>
+               Africa is a continent rich in natural resources and diverse cultures. Its abundance of resources, such as gold, oil, and agricultural products, 
+               holds significant potential for sustainable economic growth. Furthermore, Africa offers unique business opportunities backed by its rich history and traditions.
+                Particularly noteworthy is Africa's young population. In 50 years, it is projected that one-quarter of the world's population will come from Africa, with over
+                half being under the age of 18. The energy and innovation of these young people will drive entrepreneurship and technological advancements, enhancing competitiveness 
+                in the global market.
+
+            </p>
+            <p>
+               ADNJ will collaborate with the city of Higashi-Osaka to provide a valuable platform for dialogue with Africa. This year, in addition to the Africa Expo and Africa Forum, 
+               we have a special event with dozens of business professionals invited from Africa, allowing for direct interaction. Through this valuable opportunity, let's experience Africa's 
+               charm and take the first step towards building a shared future together.
+
+            </p>
+            <p>
+                We sincerely look forward to your participation.
+
+            </p>
+            <p slot="signature">Dr. Oussouby SACKO</p>
+            <div slot="image-caption">
+                <p class="font-bold mb-2">Dr. Oussouby SACKO</p>
+                <p>OABF Executive Committee Chairman and Vice President of the Japan International Exposition 2025 Association
+                </p>
+            </div>
+        </MessageSection>
+        <SpeakerSection lang={lang} cols="4" id="speakers">
+            <span slot="title">Speakers</span>
+           
+            <!--
+            <SpeakersCard lang={lang} role="speaker"
+                          image="https://adnjapan.org/wp-content/uploads/2023/07/Ahunna-Eziakonwa.jpg">
+                <span slot="name">Ms. Ahunna Eziakonwa</span>
+                <span slot="info">Director of the Regional Bureau for Africa, UNDP</span>
+                <span slot="topic">Innovative and Impact Investment in Africa: Which Way Forward?</span>
+            </SpeakersCard> 
+            
+            <SpeakersCard lang={lang} role="speaker"
+                          image="https://adnjapan.org/wp-content/uploads/2023/07/Yasuaki-Nakajima.jpeg">
+                <span slot="name">Mr. Yasuaki Nakajima</span>
+                <span slot="info">Manager of the Organization for Small and Medium Enterprises and Regional Innovation, Kinki Headquarters.</span>
+            </SpeakersCard>
+            
+            <SpeakersCard lang={lang} role="speaker"
+                          image="https://adnjapan.org/wp-content/uploads/2023/07/Ken-Shibusawa.jpeg">
+                <span slot="name">Mr. Ken Shibusawa</span>
+                <span slot="info">Founder and CEO of & Capital Inc, an impact fund for Africa with Japan.  </span>
+                <span slot="topic">Chairperson of Global South Africa Committee, Keizai Doyukai (Japan Association of Corporate Executives). </span>
+            </SpeakersCard>
+            
+              <SpeakersCard lang={lang} role="speaker"
+                          image="https://adnjapan.org/wp-content/uploads/2023/07/Furuta-Hiroshi.jpg">
+                <span slot="name">Mr. Furuta Hiroshi</span>
+                <span slot="info">Representative of Organization for Small & Medium Enterprises and Regional Innovation</span>
+            </SpeakersCard>
+            
+             <SpeakersCard lang={lang} role="speaker"
+                          image="https://adnjapan.org/wp-content/uploads/2023/07/Tshilidzi-Marwala.jpeg">
+                <span slot="name">Professor Tshilidzi Marwala</span>
+                <span slot="info">Rector, United Nations University-UNU</span>
+            </SpeakersCard>
+            
+            <SpeakersCard lang={lang} role="speaker"
+                          image="https://adnjapan.org/wp-content/uploads/2023/07/Makoto-Goda.png">
+                <span slot="name">Mr. Makoto Goda</span>
+                <span slot="info">CEO of Nippon Biodiesel Fuel (NBF), Special Envoy for TICAD7, and Agriculture leader with Africa-Japan Business Council</span>
+            </SpeakersCard>
+            
+              <SpeakersCard lang={lang} role="speaker"
+                          image="https://adnjapan.org/wp-content/uploads/2023/07/Nsenda.jpeg">
+                <span slot="name">Prof Nsenda Lukmwena</span>
+                <span slot="info">Associate Professor, Department of Information Systems, Graduate School of Information Technology, KIC</span>
+            </SpeakersCard>
+            
+            <SpeakersCard lang={lang} role="speaker"
+                          image="https://adnjapan.org/wp-content/uploads/2023/07/Kenji-Fukuoka-scaled.jpeg">
+                <span slot="name">Mr. Kenji Fukuoka</span>
+                <span slot="info">Managing director, Kobe Institute of Computing</span>
+            </SpeakersCard>
+            
+            <SpeakersCard lang={lang} role="speaker"
+                          image="https://adnjapan.org/wp-content/uploads/2023/07/Jerry-Agyemang.jpeg">
+                <span slot="name">Mr. Jerry Agyemang</span>
+                <span slot="info">Certified Advisor, Global Accounting, Tax & Auditing Company; Founder, Ghana-Japan Friendship Association</span>
+            </SpeakersCard>
+            
+            <SpeakersCard lang={lang} role="speaker"
+                          image="https://adnjapan.org/wp-content/uploads/2023/08/Ferda-Gelegen1.png">
+                <span slot="name">Mr. Ferda Gelegen</span>
+                <span slot="info">Deputy Head in charge of Operations at the United Nations Industrial Development Organization, Investment and Technology Promotion Office, Tokyo (UNIDO ITPO Tokyo)</span>
+            </SpeakersCard>
+            
+            <SpeakersCard lang={lang} role="speaker"
+                          image="https://adnjapan.org/wp-content/uploads/2023/08/Yosuke-Yoshida1.jpeg">
+                <span slot="name">Mr. Yosuke Yoshida</span>
+                <span slot="info">Co-CEO of EMURGO Middle East & Africa and CEO of EMURGO Kepple Ventures</span>
+            </SpeakersCard>
+            
+             <SpeakersCard lang={lang} role="speaker"
+                          image="https://adnjapan.org/wp-content/uploads/2023/08/Yasuyuki-Murahashi.jpeg">
+                <span slot="name">Mr. Yasuyuki Murahashi</span>
+                <span slot="info">Director, JETRO Osaka Headquarters</span>
+            </SpeakersCard>
+            
+            -->
+
+            
+             <SpeakersCard lang={lang} role="speaker"
+                          image="https://adnjapan.org/wp-content/uploads/2022/07/sacko.png">
+                <span slot="name">Prof. Oussouby SACKO</span>
+                <span slot="info">Vice Chairman, Japan Association for the 2025 World Exposition</span>
+                <span slot="topic">The potential of Women & Youth in Africa and the way to connect with Africa</span>
+            </SpeakersCard>
+
+            <SpeakersCard lang={lang} role="speaker"
+                          image="https://adnjapan.org/wp-content/uploads/2023/07/Noda-Yoshikazu.jpeg">
+                <span slot="name">Mr. Yoshikazu Noda</span>
+                <span slot="info">Mayor of Higashi-Osaka City</span>
+            </SpeakersCard>
+           
+            
+            <SpeakersCard lang={lang} role="speaker"
+                          image="https://adnjapan.org/wp-content/uploads/2024/10/tsutomu_himeno.jpeg">
+                <span slot="name">Mr. Tsutomu Himeno</span>
+                <span slot="info">Government Representative / Ambassador for Kansai, Ministry of Foreign Affairs</span>
+            </SpeakersCard>
+           
+            <SpeakersCard lang={lang} role="speaker"
+                          image="https://adnjapan.org/wp-content/uploads/2023/08/Toshiyuki-Nakamura.jpeg">
+                <span slot="name">Mr. Toshiyuki Nakamura</span>
+                <span slot="info">Special Assistant to the President of JICA</span>
+            </SpeakersCard>
+            <SpeakersCard lang={lang} role="speaker"
+                          image={ChickeImg}>
+                <span slot="name">Mr. Chike C. Nwoffiah</span>
+                <span slot="info">Founding Director, Silicon Valley African Film Festival (SVAFF) San Jose, California, USA</span>
+            </SpeakersCard>
+            
+            <SpeakersCard lang={lang} role="speaker"
+                          image="https://adnjapan.org/wp-content/uploads/2024/10/in_preperation.jpeg">
+                <span slot="name">Ms.Nose Yukiyo</span>
+                <span slot="info">Advisor to Small and Medium Enterprise Corporation</span>
+            </SpeakersCard>
+            <SpeakersCard lang={lang} role="speaker"
+                          image="https://adnjapan.org/wp-content/uploads/2024/10/in_preperation.jpeg">
+                <span slot="name">Ms.Morota Izumi</span>
+                <span slot="info">Advisor to UNDP TICAD</span>
+            </SpeakersCard>
+            <SpeakersCard lang={lang} role="speaker"
+                          image="https://adnjapan.org/wp-content/uploads/2024/10/in_preperation.jpeg">
+                <span slot="name">Mr.Kinoshita Naoshige</span>
+                <span slot="info">Deputy Representative, African Development Bank, Asia Representative Office</span>
+            </SpeakersCard>
+            <SpeakersCard lang={lang} role="speaker"
+                          image="https://adnjapan.org/wp-content/uploads/2024/10/in_preperation.jpeg">
+                <span slot="name">AfCFTA</span>
+                <span slot="info">TBC</span>
+            </SpeakersCard>
+
+        </SpeakerSection>
+        <SpeakerSection separator={false} lang={lang} class="md:pr-0 pt-0" cols="4" id="moderators">
+            <span slot="title">Moderators & MC</span>
+            <SpeakersCard lang={lang} role="moderator"
+                          image="https://adnjapan.org/wp-content/uploads/2023/07/Ba-Abou.png">
+                <span slot="name">Mr. Ba Abou</span>
+                <span slot="info"></span>
+            </SpeakersCard>
+            <SpeakersCard lang={lang} role="moderator"
+                          image="https://adnjapan.org/wp-content/uploads/2023/07/AMO-KAE.jpeg">
+                <span slot="name">Amo Kae</span>
+                <span slot="info"></span>
+            </SpeakersCard>
+            <SpeakersCard lang={lang} role="mc"
+                          image="https://adnjapan.org/wp-content/uploads/2023/07/Hiromi-Mine.jpeg">
+                <span slot="name">Hiromi Mine</span>
+                <span slot="info">Japanese</span>
+            </SpeakersCard>
+            <SpeakersCard lang={lang} role="mc"
+                          image="https://adnjapan.org/wp-content/uploads/2023/07/Narianja-Ralambozatovo.jpeg">
+                <span slot="name">Narianja Larambozatovo</span>
+                <span slot="info">English</span>
+            </SpeakersCard>
+            <SpeakersCard lang={lang} role="mc"
+                          image="https://adnjapan.org/wp-content/uploads/2024/10/in_preperation.jpeg">
+                <span slot="name">Mr.Takahashi Motoki</span>
+                <span slot="info">Professor, Kyoto University / African Area Studies</span>
+            </SpeakersCard>
+            <SpeakersCard lang={lang} role="mc"
+                          image="https://adnjapan.org/wp-content/uploads/2024/10/in_preperation.jpeg">
+                <span slot="name">Ms.Kondo Chika</span>
+                <span slot="info">UNDP Africa Bureau TICAD Liaison Specialist</span>
+            </SpeakersCard>
+            
+            
+        </SpeakerSection>
+        <TimetableSection lang={lang} id="program" client:load>
+            <div slot="forum">
+                <TimetableEntry
+                        lang={lang}
+                        title="Registration, networking and booth exhibition"
+                        description="Participants receive an ID card and may visit embassy, partner and sponsor booths."
+                        location="Exhibition area"
+                        time="10:00–11:30"
+                ></TimetableEntry>
+                <TimetableEntry
+                        lang={lang}
+                        title="Opening Ceremony"
+                        description="MC introduction, fashion show / cultural parade, and welcome addresses."
+                        location="Main Hall"
+                        time="11:30–12:15"
+                ></TimetableEntry>
+                
+                <TimetableEntry
+                        lang={lang}
+                        title="Keynote Speech: From OSAKA EXPO to Green Future"
+                        description="The post-Expo transition from visibility to implementation and sustainable growth."
+                        location="Main Hall"
+                        time="12:15–12:45"
+                        class="bg-slate-50"
+                ></TimetableEntry>
+                
+                <TimetableEntry
+                        lang={lang}
+                        title="Session 1: Green & Sustainability"
+                        description="Co-creating green innovation and sustainable agri-business through environmental technology, renewable energy, smart agriculture and climate adaptation."
+                        location="Main Hall"
+                        time="12:45–14:00"
+                >
+                    <TimetableEntrySection
+                            lang={lang}
+                            title="Speakers"
+                            participants={['SMRJ technical support cases', 'Green EXPO representative', 'Environmental and agri-technology companies', 'Kenji Kato, METI Africa Office', 'Moderator: TBC']}
+                            cols="grid-cols-1 md:grid-cols-4"
+                    >
+                    </TimetableEntrySection>
+                </TimetableEntry>
+                
+                <TimetableEntry
+                        lang={lang}
+                        title="Break"
+                        description=""
+                        location=""
+                        time="14:00–14:15"
+                ></TimetableEntry>
+                
+                 <TimetableEntry
+                        lang={lang}
+                        title="Session 2: Africa Market Access"
+                        description="From Expo partnerships to market entry: partners, distributors, local production, technology transfer, joint ventures, regulation, financing and regional markets."
+                        location="Main Hall"
+                        time="14:15–15:30"
+                ></TimetableEntry>
+                
+                 <TimetableEntry
+                        lang={lang}
+                        title="Success Stories & Start-up Pitch Session"
+                        description="Green and social innovation pitches by Japanese and Japan-based African entrepreneurs, followed by investor comments."
+                        location="Main Hall"
+                        time="15:30–16:00"
+                ></TimetableEntry>
+                
+                <TimetableEntry
+                        lang={lang}
+                        title="Partnership Signing Ceremony · ADNJ Award · Closing"
+                        description="Higashiosaka City–ADNJ partnership signing, annual ADNJ Award, closing addresses and group photo."
+                        location="Main Hall"
+                        time="16:00–16:30"
+                ></TimetableEntry>
+                
+                <TimetableEntry
+                        lang={lang}
+                        title="Break & Booth Networking"
+                        description="Targeted B2B, B2G, G2G and university matching across SME, green technology, energy, agri-business and research corners."
+                        location="Exhibition area"
+                        time="16:30–17:30"
+                ></TimetableEntry>
+                
+                 <TimetableEntry
+                        lang={lang}
+                        title="Venue Close-out · Group Transfer"
+                        description="Transfer from Higashiosaka (Yaenosato) to Shinsaibashi / PANAF’. Fares are paid individually."
+                        location=""
+                        time="17:30–18:30"
+                >
+                    <TimetableEntrySection
+                            lang={lang}
+                            title="Speakers"
+                            participants={['Yoshikazu Noda, Mayor of Higashi Osaka City', 'David Kpondehou, Representative Director of ADNJ']}
+                            cols="grid-cols-1 md:grid-cols-4"
+                    >
+                    </TimetableEntrySection>
+                </TimetableEntry>
+                
+                
+                <TimetableEntry
+                        lang={lang}
+                        title="Networking Reception — PANAF’ African Restaurant & Club"
+                        description="African food, music and business networking. Registration required; food and refreshments are paid individually. VIP table for invited ambassadors, delegations, sponsors, partners, speakers and ADNJ officials."
+                        location="PANAF’ African Restaurant & Club"
+                        time="18:30–20:30"
+                        class="bg-slate-50"
+                >
+                    <TimetableEntrySection
+                            lang={lang}
+                            title=""
+                    >
+                       
+                    </TimetableEntrySection>
+                    <TimetableEntrySection
+                            lang={lang}
+                            title="Speakers"
+                            participants={['AfCFTA   Keynote ', 'West Africa (ECOWAS)', 'East Africa (EAST AFRICAN COMMUNITY  / EAC) ', 'Central Africa (EASTERN CENTRAL)', 'Northern Africa ( MAGRHEB)', 'Southern Africa (Southern African Development Community / SADEC)']}
+                            cols="grid-cols-1 md:grid-cols-3"
+                    >
+                    </TimetableEntrySection>
+                </TimetableEntry>
+               
+               
+               
+                  <!--
+                
+                <TimetableEntry
+                        lang={lang}
+                        title="Concurrent Breakout Workshops"
+                        time="17:00～18:00"
+                        description="Workshops to do something and learn something."
+                >
+                    <div class="grid md:grid-cols-2 border rounded-md mt-5">
+                        <TimetableEntrySection
+                                lang={lang}
+                                location="ROOM1: Main Hall"
+                                title="Topic: Investment opportunities in digital infrastructure and creating a single market"
+                                participants={['Speaker: Representative of the African Continental Free Trade Area (AfCFTA)', 'Discussants: Jerry Agyemang, Certified Advisor, Global Accounting, Tax & Auditing Company; Founder, Ghana-Japan Friendship Association', 'Moderator: TBC', 'Rapporteur: TBC']}
+                                class="p-5 border-r "
+                                cols="grid-cols-1 md:grid-cols-2"
+                        >
+
+                        </TimetableEntrySection>
+                        <TimetableEntrySection
+                                lang={lang}
+                                location="ROOM 2: C1"
+                                title="Topic: Technology Innovation and Sustainable Development"
+                                participants={['Speaker: Professor Tshilidzi Marwala, UN Under-Secretary-General and Rector, United Nations University ', 'Discussant: Kenji Fukuoka, Vice President, Kobe Institute of Computing; ICT4D Grassroot Projects, Rwanda', 'Moderator: TBC', 'Rapporteur: TBC']}
+                                class="p-5"
+                                cols="grid-cols-1 md:grid-cols-2"
+                        >
+
+                        </TimetableEntrySection>
+                        <TimetableEntrySection
+                                lang={lang}
+                                location="ROOM3: C2"
+                                title="Topic: Agriculture and climate resilience."
+                                participants={['Speaker: Mr. Goda Makoto, CEO of Nippon Biodiesel Fuel-NBF; Special Envoy for TICAD7 and Agriculture leader with Africa-Japan Business Council', 'Discussants: Mr. Furuta Hiroshi, Representative of the Organization for Small & Medium Enterprises and Regional Innovation', 'Moderator: Dr. Papa Saliou Sarr, Senior Researcher, JIRCAS and Member of Advisory Board Directors, ADNJ', 'Rapporteur: TBC']}
+                                class="p-5 border-r border-t"
+                                cols="grid-cols-1 md:grid-cols-2"
+                        >
+                          
+                            A short description of the activities that will happen in this room
+                            <ul class="list-disc pl-5 mt-2">
+                                <li>Topic 1</li>
+                                <li>Topic 2</li>
+                                <li>Topic 3</li>
+                            </ul>
+                           
+                        </TimetableEntrySection>
+                        <TimetableEntrySection
+                                lang={lang}
+                                location="ROOM4: Main Hall"
+                                title="Topic: ADNJ Business Idea Pitching (BIP)"
+                                class="p-5 border-t"
+                                cols="grid-cols-1 md:grid-cols-2"
+                        >
+                            The ADNJ Business Idea Pitch (BIP) programs will give African students the opportunity to
+                            present and pitch their business ideas to Japanese companies and startups in attendance. It
+                            will also provide those seeking employment with first-hand information about available
+                            positions in Japanese companies. We envisioned that 3 African students entrepreneurs and
+                            innovators studying in Japan would pitch their ideas for 5 minutes during the Forum.
+
+                        </TimetableEntrySection>
+                    </div>
+                </TimetableEntry>              
+                                          
+                
+                <TimetableEntry
+                        lang={lang}
+                        title="Reception Party"
+                        description=""
+                        time="18:30～20:30"
+                        class="bg-slate-50"
+                ></TimetableEntry>
+                
+                 --> 
+                
+                
+                
+            </div>
+            <div slot="expo">
+                <TimetableEntry
+                        lang={lang}
+                        title="Africa Food & Marche"
+                        description="All day"
+                        location="Park"
+                        time="11:00～end"
+                ></TimetableEntry>
+                <TimetableEntry
+                        lang={lang}
+                        title="Opening Ceremony"
+                        description="African Artists X Kids Dance Show. Speeches by officials"
+                        location="Park"
+                        time="12:00～12:??"
+                        class="bg-slate-50"
+                ></TimetableEntry>
+                <TimetableEntry
+                        lang={lang}
+                        title="Music & Dance Show"
+                        description="African Artists X Kids Dance Show. Speeches by officials"
+                        location="Park"
+                        time="13:00～13:??"
+                ></TimetableEntry>
+                <TimetableEntry
+                        lang={lang}
+                        title="Africa Fashion & Parade"
+                        description="African Artists X Kids Dance Show. Speeches by officials"
+                        location="Park"
+                        time="16:30～??:??"
+                        class="bg-slate-50"
+                ></TimetableEntry>
+                <TimetableEntry
+                        lang={lang}
+                        title="Main Contents"
+                        description="African Artists X Kids Dance Show. Speeches by officials"
+                        location="Park"
+                        time="18:00～??:??"
+                ></TimetableEntry>
+            </div>
+        </TimetableSection>
+        <Sponsors id="sponsors" lang={lang}></Sponsors>
+        <Register lang={lang}>
+            <span slot="title">Register Now</span>
+        </Register>
+        <Footer lang={lang}></Footer>
+    </VerticalLayout>
+</BaseLayout>

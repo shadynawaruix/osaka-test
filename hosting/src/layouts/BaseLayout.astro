@@ -1,0 +1,73 @@
+---
+import {getLangFromUrl, useTranslations} from "../i18n/utils";
+import NavigationBar from "../components/sections/NavigationBar.vue";
+const lang = getLangFromUrl(Astro.url);
+
+let {showMainNav, alwaysShowLogoLabel} = Astro.props;
+
+if (showMainNav === undefined)
+    showMainNav = true;
+
+const t = useTranslations(lang);
+const url = Astro.url.href;
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+<head>
+    <meta charset="UTF-8"/>
+
+    <meta name="robots" content="noindex">
+
+    <meta name="description" content={t("meta.description")}>
+    <meta name="og:title" content={t("meta.og.title")}>
+    <meta name="og:description" content={t("meta.og.description")}>
+    <meta name="og:url" content={url}>
+    <link rel="icon" type="image/svg+xml" href="/adnj-logo.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1,user-scalable=no"/>
+    <title>{t("meta.title")}</title>
+
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org/",
+            "@type": "BusinessEvent",
+            "name": "Osaka Africa Business Forum",
+            "description": "Africa Business Forum-Osaka 2026: From Osaka EXPO to Green EXPO: Growing together with Africa",
+            "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+            "eventStatus": "https://schema.org/EventScheduled",
+            "startDate": "2026-10-22T10:00:00.000+09:00",
+            "endDate": "2026-10-22T20:30:00.000+09:00",
+            "location": [
+                {
+                    "@type": "Place",
+                    "name": "Higashiosaka City Cultural Creation Hall",
+                    "address": {
+                        "streetAddress": "2-3-4 Mikuriya Minami",
+                        "addressLocality": "Higashiosaka-shi",
+                        "addressRegion": "Osaka",
+                        "postalCode": "578-0923",
+                        "addressCountry": "Japan"
+                    },
+                    "hasMap": "https://goo.gl/maps/FnD3DbWHcvFMGHU36"
+                }
+            ],
+            "organizer": {
+                "@type": "Organization",
+                "name": "Africa Diaspora Network Japan",
+                "url": "https://adnjapan.org/"
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+        }
+    </style>
+</head>
+<body class="min-h-screen w-screen overflow-x-hidden flex flex-col">
+<NavigationBar showMainNav={showMainNav} alwaysShowLogoLabel={alwaysShowLogoLabel} lang={lang}
+               client:load></NavigationBar>
+<slot></slot>
+</body>
+</html>

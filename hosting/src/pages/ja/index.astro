@@ -1,0 +1,582 @@
+---
+import {getLangFromUrl} from "../../i18n/utils";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import VerticalLayout from "../../components/layout/VerticalLayout.vue";
+import NavigationBar from "../../components/sections/NavigationBar.vue";
+import HeroSection from "../../components/sections/HeroSection.vue";
+import InfoSection from "../../components/sections/Info.vue";
+import ForumSection from "@components/sections/Forum.vue";
+import ExpoSection from "@components/sections/Expo.vue";
+import SpeakerSection from "../../components/sections/Speakers.vue";
+import SpeakersCard from "@components/sections/SpeakersCard.vue";
+import TimetableSection from "../../components/sections/Timetable.vue";
+import Sponsors from "../../components/sections/Sponsors.vue";
+import Register from "../../components/sections/Register.vue";
+import Footer from "../../components/sections/Footer.vue";
+import MessageSection from "../../components/sections/Message.vue";
+import TimetableEntry from "@components/sections/TimetableEntry.vue";
+import TimetableEntrySection from "@components/sections/TimetableEntrySection.vue";
+
+import DavidMessageFromPresidentImg from "../../assets/osaka-africa-business-forum/data_545.jpg";
+import SackoMessageImg from "../../assets/osaka-africa-business-forum/data_330.jpg";
+import ChickeImg from "../../assets/osaka-africa-business-forum/chike-c-nwoffiah.jpg";
+
+const lang = getLangFromUrl(Astro.url);
+---
+<BaseLayout>
+    <VerticalLayout class="md:gap-0">
+        <HeroSection lang={lang} client:load></HeroSection>
+        <InfoSection lang={lang} id="info">
+            <span slot="title">
+                アフリカのビジネス機会を探索し、つなげる。
+
+            </span>
+            <span slot="description">
+                最後のフロンティアと呼ばれ世界中の経済界から注目されるアフリカ大陸と、日本とのビジネス関係構築を促進すべく2022年から毎年秋に開催してきたこのフォーラムは、昨年からビジネスだけに限らない、文化間の交流・人と人との繋がりにも焦点を当て、Africa EXPOの開催も併せた2Daysイベントへと成長しています。
+                今年はさらにアフリカ各国から40社の企業が来日し、昨年よりも具体的なパートナーシップ構築や日本との文化交流促進に繋げます。（両日ともに参加無料）
+            </span>
+            <span slot="card-1-title">
+                ビジネス機会の情報
+            </span>
+            <span slot="card-1-content">
+               アフリカ市場に関する知識と経験を持つ厳選された専門家による基調講演、パネルディスカッション、アフリカ５地域別のブレイクアウト交流会を通じて、アフリカにおけるビジネスチャンスについて学ぶことができます。
+            </span>
+            <span slot="card-2-title">
+               アフリカへビジネス拡大のためのつながり
+            </span>
+            <span slot="card-2-content">
+               アフリカの大使館や各国出身の在日アフリカ人、またアフリカに関心を持つ企業、専門家とのネットワーキングの機会があります
+            </span>
+            <span slot="card-3-title">
+                リアルなアフリカ体験
+            </span>
+            <span slot="card-3-content">
+                アフリカの料理、ファッションショー、音楽やダンスなどのパフォーマンス、またアフリカ大使館の展示ブースを通じて、リアルなアフリカ文化を体験することができます。
+            </span>
+        </InfoSection>
+        <ForumSection lang={lang} id="forum">
+            <span slot="title">
+               ビジネスフォーラム
+            </span>
+            <span slot="description">
+                基調講演、パネルディスカッション、ワークショップなど、ハイレベルのディスカッションが行われます
+            </span>
+
+            <span slot="venue-name">
+                東大阪市文化創造館
+            </span>
+            <span slot="venue-address">
+                〒577-0034　大阪府東大阪市御厨南二丁目３番４号
+            </span>
+
+            <span slot="card-1-title">
+                基調講演
+            </span>
+            <span slot="card-1-content">
+                アフリカ市場の専門知識を持つゲストスピーカーによるアフリカのビジネス事例や発展に関するプレゼンテーション形式のセミナーです。
+            </span>
+            <span slot="card-2-title">
+                パネルディスカッション
+            </span>
+            <span slot="card-2-content">
+                優れた専門家や業界のリーダーたちが、アフリカにおけるビジネスの機会に関連するトピックについて、建設的な意見交換を行います。その専門性と知見に基づいて厳選されたパネリストが、アフリカ市場に対する専門知識や見解を共有し、方針や方向性についてアドバイスします。
+            </span>
+            <span slot="card-3-title">
+               テーマ別ワークショップ
+            </span>
+            <span slot="card-3-content">
+               アフリカ市場について深い知識を持つ業界の専門家やプロフェッショナルが主導し、参加者がインタラクティブなセッションや実践的な演習を通じて、アフリカ市場につながる価値あるスキルや戦略を得る場を提供します。
+            </span>
+            <span slot="card-4-title">
+                ブース
+            </span>
+            <span slot="card-4-content">
+                多目的ルームには、アフリカ大使館、スポンサー、パートナー、共同主催者、および専門機関の展示ブースが設置されます。是非、各ブースを訪れ、ビジネスの機会やアフリカの文化を発見してください。各国のアフリカ大使との交流の機会や、ご自身のネットワークの拡大、パートナーシップを築く絶好のチャンスです。
+            </span>
+
+            <span slot="register-title">
+                出展を希望される方へ
+            </span>
+            <span slot="register-content">
+                ブースの設置、パフォーマンス、食品販売や飲食店の出店等をご希望の方は、お問い合わせ」からご連絡をお願いします。
+            </span>
+            <span slot="register-button">
+                <a href="https://forms.gle/LrEHbNAmjjBwm9Yx6"
+                   class="text-sm text-white-800 font-bold mt-5 ">お問い合わせ</a>
+            </span>
+        </ForumSection>
+        <ExpoSection lang={lang} id="expo">
+            <span slot="title">
+                Discover Africa Expo, Matsuri
+            </span>
+            <span slot="subtitle">
+                リアルなアフリカ体験
+            </span>
+            <span slot="description">
+               イベント2日目は、市民、企業、在日アフリカ大使館が、それぞれの製品、サービス、文化遺産を紹介する場となります。
+            </span>
+
+            <span slot="venue-name">
+                東大阪市花園中央公園
+            </span>
+            <span slot="venue-address">
+               〒578-0923 大阪府東大阪市松原南１丁目１−４３
+            </span>
+
+            <span slot="business-card-1-title">
+                ブース
+            </span>
+            <span slot="business-card-1-content">
+                在日アフリカ大使館によるBtoB商談会ブース。企業、海外進出支援機関を含む政府系パートナーによるブース出展
+            </span>
+            <span slot="business-card-2-title">
+                B2B Meeting Area
+            </span>
+            <span slot="business-card-2-content">
+             BtoBのために設けられたエリアです。このスペースでは、参加者がビジネスミーティングや商談に利用いただけます。
+            </span>
+
+            <span slot="expo-card-1-title">
+                開会式
+            </span>
+            <span slot="expo-card-1-content">
+                政府や外交関係者による歓迎スピーチが予定されています。
+            </span>
+            <span slot="expo-card-2-title">
+               アフリカンマーケットプレイス
+            </span>
+            <span slot="expo-card-2-content">
+                アフリカ各国の出展者が、テキスタイル、手工芸品、美術、装飾品、食品、飲料などさまざまな製品を展示します。
+            </span>
+            <span slot="expo-card-3-title">
+                アフリカンパフォーマンス
+            </span>
+            <span slot="expo-card-3-content">
+               伝統的な音楽を奏でるアーティストとファッションショー
+            </span>
+            <span slot="expo-card-4-title">
+                プレゼンテーション
+            </span>
+            <span slot="expo-card-4-content">
+               シリコンバレーアフリカ映画祭（SVAFF）の創始者Chike Nwoffiahによる「アフリカにおけるクリエイティブビジネスのポテンシャル」
+            </span>
+
+            <span slot="register-title">
+                出展を希望される方へ
+            </span>
+            <span slot="register-content">
+                ブースの設置、パフォーマンス、食品販売や飲食店の出店等をご希望の方は、お問い合わせ」からご連絡をお願いします。
+            </span>
+            <span slot="register-button">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeMVtqMWbR30hYYh92voAHezWdY3_bQmEU_MR4Kbq-uLfT0Lg/viewform"
+                   class="text-sm text-white-800 font-bold mt-5 ">お問い合わせ</a>
+            </span>
+
+        </ExpoSection>
+        <MessageSection lang={lang} id="message" image={DavidMessageFromPresidentImg}>
+            <span slot="title"> 大切なパートナー、スポンサー、参加者の皆様へ </span>
+            <p>
+                在日アフリカ・ディアスポラ・ネットワーク（ADNJ）は、2024年大阪アフリカ・ビジネス・フォーラム（OABF）へのご参加を歓迎いたします。
+            </p>
+            <p>
+                私たちは、2020年から「ディスカバー・アフリカ」プログラムを先導し、日本企業とアフリカ企業間のつながりと有意義なビジネスコラボレーションを促進してきました。
+                そして、OABFの過去2年間の経験を基に、今年は「アフリカとともに歩もう!」をテーマに掲げます。
+            </p>
+            <p>
+               2024年大阪アフリカビジネスフォーラムの第3回目は、参加者の皆様に多くの機会を提供することをお約束します。日本企業にとっては、このフォーラムが新たな事業の発見やダイナミックなアフリカ市場に関する貴重な洞察を得るための扉を開きます。
+               アフリカ企業にとっては、アフリカ市場における提携や協力の機会を提供します。
+            </p>
+            <p>
+                今年の最新イノベーションは、フォーラムの前後イベントとして、アフリカ現地の企業が10月17日から28日まで、10日間のビジネス視察訪問を行い、大阪、神戸、京都、横浜で日本企業とB2Bミーティングに参加します。
+            </p>
+            <p>
+               スポンサー、パートナー、ボランティアとして参加することで、個人や組織の利益につながる強力なネットワークの構築に貢献することができます。力を合わせれば、明るく豊かな未来への道を切り開くことができるでしょう。
+            </p>
+            <p>
+               皆さまの参加と貴重な貢献を心よりお待ちしております。
+            </p>
+             <p>
+               どうぞ参加登録をしてください！皆様にお会いできることを楽しみにしております。
+               敬具
+            </p>
+            <p slot="signature">デイビッド ポンデウ</p>
+            <div slot="image-caption">
+                <p class="font-bold mb-2">デイビッド ポンデウ</p>
+                <p> 在日アフリカ人ネットワーク ADNJ代表 </p>
+            </div>
+        </MessageSection>
+        <MessageSection lang={lang} image={SackoMessageImg} order="inverted">
+            <span slot="title"> 皆様 </span>
+            <p>
+                「アフリカと共に歩こう」、これが今年の大阪アフリカビジネスフォーラムのテーマです。この機会に、アフリカとの実際の関わりを深めたいビジネスパーソンや中小企業経営者、一般の方々にご参加いただけることを心より歓迎します。
+            </p>
+            <p>
+                アフリカは、豊かな自然資源と多様な文化が共存する大陸です。金、石油、ココア、農産物など、さまざまな資源が豊富に存在し、持続可能な経済成長を支える可能性に満ちています。
+                さらに、アフリカは独自の歴史や伝統を持つ国々が集まり、国際的な視点から新たなビジネスチャンスや投資先を提供しています。
+
+            </p>
+            <p>
+                特に注目すべきは、アフリカの若い人口です。50年後にはアフリカの人口が世界の4分の1を占め、その半数以上が18歳未満と予測されています。この若者たちのエネルギーと革新性は、起業や技術革新を促進し、国際的な市場での競争力を高める源となります。
+                私たちがアフリカと共に歩むことは、未来の成長を見据えた重要な意味を持っています。
+
+            </p>
+            <p>
+                ADNJは東大阪市との協力により、アフリカとの有意義な対話の場を提供し、互いに学び合う機会を創出します。今年の特別企画として、アフリカエキスポやアフリカフォーラムに加え、アフリカ大陸から招聘した数十名のビジネス従事者と直接交流できる機会もあります。
+                この貴重なチャンスにぜひご参加いただき、アフリカの魅力を直に体感し、共に未来を築いていきましょう。
+            </p>
+            <p>
+                アフリカと共に歩む第一歩を、一緒に踏み出しましょう。この機会を逃すことなく、新たなビジネスの可能性を探ることをお勧めします。皆様のご参加を心よりお待ちしております
+            </p>
+            
+            <p slot="signature">ウスビ・サコ博士 </p>
+            <div slot="image-caption">
+                <p class="font-bold mb-2"> ウスビ・サコ博士 </p>
+                <p>OABF実行委員長/2025年日本国際博覧会協会副会長
+                </p>
+            </div>
+        </MessageSection>
+        <SpeakerSection lang={lang} cols="4" id="speakers">
+            <span slot="title">Speakers</span>
+            <!--
+            <SpeakersCard lang={lang} role="speaker"
+                          image="https://adnjapan.org/wp-content/uploads/2023/07/Ahunna-Eziakonwa.jpg">
+                <span slot="name">アフンナ・エジアコンワ氏</span>
+                <span slot="info">UNDPアフリカ地域局長</span>
+                <span slot="topic">アフリカにおける革新的投資とインパクト投資：今後はどちらへ進むのか</span>
+            </SpeakersCard>
+            
+            <SpeakersCard lang={lang} role="speaker"
+                          image="https://adnjapan.org/wp-content/uploads/2023/07/Ken-Shibusawa.jpeg">
+                <span slot="name"> 渋澤 健氏 </span>
+                <span slot="info">アフリカへのインパクト投資促進に向けた「株式会社 and Capital」創設者 </span>
+                <span slot="topic">経済同友会グローバルサウス・アフリカ委員会委員長 </span>
+            </SpeakersCard>
+            
+            <SpeakersCard lang={lang} role="speaker"
+                          image="https://adnjapan.org/wp-content/uploads/2023/07/Furuta-Hiroshi.jpg">
+                <span slot="name">古田 浩氏</span>
+                <span slot="info">独立行政法人　中小企業基盤整備機構　中小企業アドバイザー</span>
+            </SpeakersCard>
+            
+            <SpeakersCard lang={lang} role="speaker"
+                          image="https://adnjapan.org/wp-content/uploads/2023/07/Tshilidzi-Marwala.jpeg">
+                <span slot="name">チリツィ・マルワラ教授</span>
+                <span slot="info">国際連合大学(UNU) 学長</span>
+            </SpeakersCard>
+            
+            <SpeakersCard lang={lang} role="speaker"
+                          image="https://adnjapan.org/wp-content/uploads/2023/07/Makoto-Goda.png">
+                <span slot="name">合田　真氏</span>
+                <span slot="info">日本植物燃料株式会社 代表取締役、TICAD7特使、アフリカビジネス協議会農業リーダー</span>
+            </SpeakersCard>
+            
+             <SpeakersCard lang={lang} role="speaker"
+                          image="https://adnjapan.org/wp-content/uploads/2023/07/Nsenda.jpeg">
+                <span slot="name">ルクムエナ　センダ教授</span>
+                <span slot="info">KIC 神戸情報大学院大学 情報工学研究科 情報システム専攻 准教授</span>
+            </SpeakersCard>
+            
+            <SpeakersCard lang={lang} role="speaker"
+                          image="https://adnjapan.org/wp-content/uploads/2023/07/Kenji-Fukuoka-scaled.jpeg">
+                <span slot="name">福岡 賢二氏</span>
+                <span slot="info">神戸情報大学院大学常務理事、ルワンダICT4D草の根プロジェクト</span>
+            </SpeakersCard>
+            
+            <SpeakersCard lang={lang} role="speaker"
+                          image="https://adnjapan.org/wp-content/uploads/2023/08/Yasuyuki-Murahashi.jpeg">
+                <span slot="name">村橋 靖之氏</span>
+                <span slot="info">JETRO大阪本部長</span>
+            </SpeakersCard>
+            
+            <SpeakersCard lang={lang} role="speaker"
+                          image="https://adnjapan.org/wp-content/uploads/2023/07/Yasuaki-Nakajima.jpeg">
+                <span slot="name">中島　康明氏</span>
+                <span slot="info">中小機構近畿本部　本部長</span>
+            </SpeakersCard>
+            
+             <SpeakersCard lang={lang} role="speaker"
+                          image="https://adnjapan.org/wp-content/uploads/2023/07/Jerry-Agyemang.jpeg">
+                <span slot="name">ジェリー・アジェマン氏</span>
+                <span slot="info">グローバル会計・税務・監査公認アドバイザー、ガーナ日本友好協会 一般社団法人 日本ガーナ親善協会 創設者</span>
+            </SpeakersCard>
+            
+            <SpeakersCard lang={lang} role="speaker"
+                          image="https://adnjapan.org/wp-content/uploads/2023/08/Ferda-Gelegen1.png">
+                <span slot="name">フェルダ・ゲレーゲン</span>
+                <span slot="info">国際連合工業開発機関（UNIDO）東京投資・技術移転促進事務所（UNIDO ITPO Tokyo）業務担当副所長</span>
+            </SpeakersCard>
+            
+             <SpeakersCard lang={lang} role="speaker"
+                          image="https://adnjapan.org/wp-content/uploads/2023/08/Yosuke-Yoshida1.jpeg">
+                <span slot="name">吉田洋介</span>
+                <span slot="info">EMURGO中東・アフリカ共同CEO、EMURGO Kepple Ventures CEO</span>
+            </SpeakersCard>
+            
+            -->
+            
+            <SpeakersCard lang={lang} role="speaker"
+                          image="https://adnjapan.org/wp-content/uploads/2022/07/sacko.png">
+                <span slot="name">ウスビ　サコ教授</span>
+                <span slot="info">2025年日本国際博覧会協会 副会長</span>
+                <span slot="topic">The potential of Women & Youth in Africa and the way to connect with Africa</span>
+            </SpeakersCard>
+
+
+            <SpeakersCard lang={lang} role="speaker"
+                          image="https://adnjapan.org/wp-content/uploads/2023/07/Noda-Yoshikazu.jpeg">
+                <span slot="name">野田 義和氏</span>
+                <span slot="info">東大阪市市長</span>
+            </SpeakersCard>
+            
+            <SpeakersCard lang={lang} role="speaker"
+                          image="https://adnjapan.org/wp-content/uploads/2024/10/tsutomu_himeno.jpeg">
+                <span slot="name">姫野 勉氏</span>
+                <span slot="info">外務省 政府代表/関西担当大使</span>
+            </SpeakersCard>
+            
+            <SpeakersCard lang={lang} role="speaker"
+                          image="https://adnjapan.org/wp-content/uploads/2023/08/Toshiyuki-Nakamura.jpeg">
+                <span slot="name">中村 俊之氏</span>
+                <span slot="info">JICA理事長特別補</span>
+            </SpeakersCard>
+            <SpeakersCard lang={lang} role="speaker"
+                          image={ChickeImg}>
+                <span slot="name">チケ・C・ヌウォフィア</span>
+                <span slot="info">シリコンバレー・アフリカ映画祭（SVAFF）創設ディレクター米国カリフォルニア州サンノゼ</span>
+            </SpeakersCard>
+            <SpeakersCard lang={lang} role="speaker"
+                          image="https://adnjapan.org/wp-content/uploads/2024/10/in_preperation.jpeg">
+                <span slot="name">Nose Yukiyo氏</span>
+                <span slot="info">中小機構中小企業アドバイザー</span>
+            </SpeakersCard>
+            <SpeakersCard lang={lang} role="speaker"
+                          image="https://adnjapan.org/wp-content/uploads/2024/10/in_preperation.jpeg">
+                <span slot="name">諸田 いずみ氏</span>
+                <span slot="info">UNDP TICADアドバイザー</span>
+            </SpeakersCard>
+            <SpeakersCard lang={lang} role="speaker"
+                          image="https://adnjapan.org/wp-content/uploads/2024/10/in_preperation.jpeg">
+                <span slot="name">木下 直茂氏</span>
+                <span slot="info">アフリカ開発銀行アジア代表事務所次席</span>
+            </SpeakersCard>
+            <SpeakersCard lang={lang} role="speaker"
+                          image="https://adnjapan.org/wp-content/uploads/2024/10/in_preperation.jpeg">
+                <span slot="name">AfCFTA</span>
+                <span slot="info">TBC</span>
+            </SpeakersCard>
+            
+            
+            
+        </SpeakerSection>
+        <SpeakerSection separator={false} lang={lang} class="md:pr-0 pt-0" cols="4" id="moderators">
+            <span slot="title">Moderators & MC</span>
+            <SpeakersCard lang={lang} role="moderator"
+                          image="https://adnjapan.org/wp-content/uploads/2023/07/Ba-Abou.png">
+                <span slot="name">バ アブ</span>
+                <span slot="info"></span>
+            </SpeakersCard>
+            <SpeakersCard lang={lang} role="moderator"
+                          image="https://adnjapan.org/wp-content/uploads/2023/07/AMO-KAE.jpeg">
+                <span slot="name">阿毛香絵</span>
+                <span slot="info"></span>
+            </SpeakersCard>
+            <SpeakersCard lang={lang} role="mc"
+                          image="https://adnjapan.org/wp-content/uploads/2023/07/Hiromi-Mine.jpeg">
+                <span slot="name">峯 開美</span>
+                <span slot="info">日本語</span>
+            </SpeakersCard>
+            <SpeakersCard lang={lang} role="mc"
+                          image="https://adnjapan.org/wp-content/uploads/2023/07/Narianja-Ralambozatovo.jpeg">
+                <span slot="name">ラランブザツブ ナリアンザ</span>
+                <span slot="info">英語</span>
+            </SpeakersCard>
+            <SpeakersCard lang={lang} role="mc"
+                          image="https://adnjapan.org/wp-content/uploads/2024/10/in_preperation.jpeg">
+                <span slot="name">高橋 基樹氏 京都大学教授/アフリカ地域研究近藤 千華氏</span>
+                <span slot="info"></span>
+            </SpeakersCard>
+             <SpeakersCard lang={lang} role="mc"
+                          image="https://adnjapan.org/wp-content/uploads/2024/10/in_preperation.jpeg">
+                <span slot="name">UNDPアフリカ局TICAD連携専門官</span>
+                <span slot="info"></span>
+            </SpeakersCard>
+            
+            
+        </SpeakerSection>
+        <TimetableSection lang={lang} id="program" client:load>
+            <div slot="forum">
+                <TimetableEntry
+                        lang={lang}
+                        title="参加者交流会・展示ブース"
+                        description=""
+                        location="多目的室"
+                        time="10:00～16:00"
+                ></TimetableEntry>
+                <TimetableEntry
+                        lang={lang}
+                        title="受付"
+                        description=""
+                        location="エントランス"
+                        time="12:00～13:00"
+                ></TimetableEntry>
+                
+                <TimetableEntry
+                        lang={lang}
+                        title="オープニングセレモニー"
+                        description="アフリカンパレード"
+                        location="小ホール"
+                        time="13:00～13:15"
+                        class="bg-slate-50"
+                ></TimetableEntry>
+                
+                <TimetableEntry
+                        lang={lang}
+                        title="開会挨拶"
+                        description=""
+                        location="小ホール"
+                        time="13:15～13:35"
+                >
+                    <TimetableEntrySection
+                            lang={lang}
+                            title="講演者"
+                            participants={['ウスビ サコ OABF実行委員長/2025年日本国際博覧会協会副会長', '外務省代表（TBC）']}
+                            cols="grid-cols-1 md:grid-cols-4"
+                    >
+                    </TimetableEntrySection>
+                </TimetableEntry>
+                
+                 <TimetableEntry
+                        lang={lang}
+                        title="基調講演"
+                        description="AfCFTAと5つの地域の特徴"
+                        location="小ホール"
+                        time="13:35～14:10"
+                ></TimetableEntry>
+                
+                 <TimetableEntry
+                        lang={lang}
+                        title="パネルディスカッション"
+                        description=""
+                        location="小ホール"
+                        time="14:10～15:00"
+                ></TimetableEntry>
+                
+                <TimetableEntry
+                        lang={lang}
+                        title="休憩"
+                        description=""
+                        location=""
+                        time="15:00～15:10"
+                ></TimetableEntry>
+                
+                <TimetableEntry
+                        lang={lang}
+                        title="ADNJ AWARD 2024"
+                        description=""
+                        location="小ホール"
+                        time="15:10～15:30"
+                ></TimetableEntry>
+                
+                <TimetableEntry
+                        lang={lang}
+                        title="OABF2023の成果・事例紹介"
+                        description=""
+                        location="小ホール"
+                        time="15:30～15:45"
+                ></TimetableEntry>
+                
+                
+                <TimetableEntry
+                        lang={lang}
+                        title="閉会挨拶"
+                        description=""
+                        location="小ホール"
+                        time="15:45～16:00"
+                >
+                    <TimetableEntrySection
+                            lang={lang}
+                            title="講演者"
+                            participants={['野田義和 東大阪市長', 'デイビッド ポンデウ ADNJ代表理事']}
+                            cols="grid-cols-1 md:grid-cols-4"
+                    >
+                    </TimetableEntrySection>
+                </TimetableEntry>
+                
+                
+                
+                
+                
+                
+                <TimetableEntry
+                        lang={lang}
+                        title="ブレイクアウト交流会"
+                        description=""
+                        location="C1, C2, A1,A2, M3"
+                        time="16:00～18:00"
+                        class="bg-slate-50"
+                >
+                    
+                    <TimetableEntrySection
+                            lang={lang}
+                            title="講演者"
+                            participants={['AfCFTA   Keynote', 'West Africa (ECOWAS)', 'East Africa (EAST AFRICAN COMMUNITY  / EAC)', 'Central Africa (EASTERN CENTRAL )', 'Northern Africa ( MAGRHEB)', 'Southern Africa (Southern African Development Community / SADEC)']}
+                            cols="grid-cols-1 md:grid-cols-3"
+                    >
+                    </TimetableEntrySection>
+                </TimetableEntry>
+                
+                
+                
+               
+                
+            </div>
+            
+            
+            
+            <div slot="expo">
+                <TimetableEntry
+                        lang={lang}
+                        title="アフリカフード & マルシェ"
+                        description="終日"
+                        location="公園"
+                        time="11:00～終了"
+                ></TimetableEntry>
+                <TimetableEntry
+                        lang={lang}
+                        title="開会式"
+                        description="アフリカンアーティスト×キッズダンスショー。 関係者によるスピーチ"
+                        location="公園"
+                        time="12:00～12:??"
+                        class="bg-slate-50"
+                ></TimetableEntry>
+                <TimetableEntry
+                        lang={lang}
+                        title="音楽＆ダンスショー"
+                        description="アフリカンアーティスト×キッズダンスショー 関係者によるスピーチ"
+                        location="公園"
+                        time="13:00～13:??"
+                ></TimetableEntry>
+                <TimetableEntry
+                        lang={lang}
+                        title="アフリカファッション＆パレード"
+                        description="アフリカンアーティスト×キッズダンスショー。関係者によるスピーチ"
+                        location="公園"
+                        time="16:30～??:??"
+                        class="bg-slate-50"
+                ></TimetableEntry>
+                <TimetableEntry
+                        lang={lang}
+                        title="主な内容"
+                        description="アフリカンアーティスト×キッズダンスショー。関係者によるスピーチ"
+                        location="公園"
+                        time="18:00～??:??"
+                ></TimetableEntry>
+            </div>
+        </TimetableSection>
+        <Sponsors id="sponsors" lang={lang}></Sponsors>
+        <Register lang={lang}>
+            <span slot="title">今すぐ登録 </span>
+        </Register>
+        <Footer lang={lang}></Footer>
+    </VerticalLayout>
+</BaseLayout>
