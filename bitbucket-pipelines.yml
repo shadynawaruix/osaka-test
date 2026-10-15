@@ -1,0 +1,16 @@
+image: node:18.16
+
+pipelines:
+  branches:
+    master:
+      - step:
+          name: Deploy to Firebase
+          deployment: production
+          script:
+            - npm --prefix hosting install
+            - npm --prefix hosting run build
+            - pipe: atlassian/firebase-deploy:3.1.1
+              variables:
+                PROJECT_ID: $FIREBASE_PROJECT
+                NODE_JS_VERSION: '18'
+                KEY_FILE: $KEY_FILE

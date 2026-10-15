@@ -1,0 +1,67 @@
+{
+  "hosting": {
+    "predeploy": "npm --prefix \"hosting\" run build",
+    "public": "hosting/dist",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "trailingSlash": true,
+    "cleanUrls": true,
+    "redirects": [
+      {
+        "source": "/en",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/en/:slug*",
+        "destination": "/:slug",
+        "type": 301
+      },
+      {
+        "source": "/ja",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/ja/:slug*",
+        "destination": "/:slug",
+        "type": 301
+      }
+    ],
+    "i18n": {
+      "root": "/"
+    },
+    "headers": [
+      {
+        "source": "**/*.@(html|js|css)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-store"
+          }
+        ]
+      },
+      {
+        "source": "**/*.@(jpg|jpeg|gif|png|webp)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=7200"
+          }
+        ]
+      },
+      {
+        "source": "404.html",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=300"
+          }
+        ]
+      }
+    ]
+  }
+}
