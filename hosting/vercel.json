@@ -1,0 +1,4 @@
+{
+  "framework": "astro",
+  "rewrites": [{"source": "/", "destination": "/en/"}]
+}
