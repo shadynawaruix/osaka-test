@@ -2,5 +2,6 @@
   "buildCommand": "npm --prefix hosting run build",
   "outputDirectory": "hosting/dist",
   "installCommand": "npm --prefix hosting ci",
-  "framework": "astro"
+  "framework": "astro",
+  "rewrites": [{"source": "/", "destination": "/en/"}]
 }
