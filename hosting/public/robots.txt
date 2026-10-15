@@ -1,0 +1,8 @@
+#disable crawling until the site is live
+
+User-agent: Googlebot
+User-agent: AdsBot-Google
+Disallow: /
+
+User-agent: *
+Disallow: /
